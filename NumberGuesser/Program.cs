@@ -10,12 +10,12 @@ namespace NumberGuesser
             /*
              * Wywołanie metody w c#
              */
-
             GetAppInfo();
 
             /*
              *  Dane od użytkownika. Przypisanie zmiennej do wyniku działania metody.
              */
+            
             string nameInput =  GetUserName();
 
             GreetUser(nameInput);
@@ -27,9 +27,10 @@ namespace NumberGuesser
             string appName = "Guesser";
             int appVersion = 1;
             string appAuthor = "Kamil";
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"[{appName}] Wersja: 0.0.{appVersion}, Author: {appAuthor} ");
-            Console.ResetColor();
+            string appLanguage = "c#";
+            
+            string info = $"[{ appName}] Wersja: 0.0.{appVersion} Author: {appAuthor} Leanguage: {appLanguage}";
+            PrintColorMessage(ConsoleColor.Magenta, info);
         }
 
         static string GetUserName()
@@ -41,12 +42,18 @@ namespace NumberGuesser
 
         static void GreetUser(string nameInput)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            string greet = $"Powodzenia {nameInput}, odgadnij liczbę....";
+            PrintColorMessage(ConsoleColor.Yellow,greet);
+        }
 
-            Console.WriteLine($"Powodzenia {nameInput}, odgadnij liczbę....");
-
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
             Console.ResetColor();
         }
+
+
 
     }
 }
