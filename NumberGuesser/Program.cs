@@ -8,10 +8,9 @@ namespace NumberGuesser
         static void Main(string[] args)
         {
             /*
-             * Wywołanie metody w c#
+             * Wywołanie metody w c#. Dane o app.
              */
             GetAppInfo();
-
             /*
              *  Dane od użytkownika. Przypisanie zmiennej do wyniku działania metody.
              */
@@ -19,6 +18,44 @@ namespace NumberGuesser
             string nameInput =  GetUserName();
 
             GreetUser(nameInput);
+
+            int correctNumber = 7;
+            bool correctAnswer = false;
+
+            Console.WriteLine("Zgadnij jaka liczbę wylosował program. Liczby z przedziału 1 - 10.");
+
+            while (!correctAnswer)
+            {
+                string numberInput = Console.ReadLine();
+                int guess;
+                bool isNumber = int.TryParse(numberInput, out guess);
+
+                if (!isNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę");
+                    continue;
+                }
+               
+                if (guess < 1 || guess > 10)
+                {
+                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę od 1 do 10");
+                    continue;
+                }
+
+                if (guess < correctNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Red, "Liczba jest większa!");
+                }
+                else if (guess > correctNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Red, "Liczba jest mniejsza!");
+                }
+                else
+                {
+                    correctAnswer = true;
+                    PrintColorMessage(ConsoleColor.Green, "Brawo!");
+                }
+            }
          
         }
 
@@ -43,7 +80,7 @@ namespace NumberGuesser
         static void GreetUser(string nameInput)
         {
             string greet = $"Powodzenia {nameInput}, odgadnij liczbę....";
-            PrintColorMessage(ConsoleColor.Yellow,greet);
+            PrintColorMessage(ConsoleColor.Green,greet);
         }
 
         static void PrintColorMessage(ConsoleColor color, string message)
@@ -52,8 +89,5 @@ namespace NumberGuesser
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
-
-
     }
 }
