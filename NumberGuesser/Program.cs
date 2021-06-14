@@ -19,7 +19,8 @@ namespace NumberGuesser
 
             GreetUser(nameInput);
 
-            int correctNumber = 7;
+            Random r = new Random();
+            int correctNumber = r.Next(1,11);
             bool correctAnswer = false;
 
             Console.WriteLine("Zgadnij jaka liczbę wylosował program. Liczby z przedziału 1 - 10.");
@@ -53,7 +54,7 @@ namespace NumberGuesser
                 else
                 {
                     correctAnswer = true;
-                    PrintColorMessage(ConsoleColor.Green, "Brawo!");
+                    PrintColorMessage(ConsoleColor.Green, $"Brawo! [{nameInput}]");
                 }
             }
          
