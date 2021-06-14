@@ -17,6 +17,9 @@ namespace NumberGuesser
             Console.WriteLine($"[{appName}] Wersja: 0.0.{appVersion}, Author: {appAuthor} ");
 
             Console.ResetColor();
+
+            Console.WriteLine("Jam masz na imię?");
+            string nameInput = Console.ReadLine();
         }
     }
 }
