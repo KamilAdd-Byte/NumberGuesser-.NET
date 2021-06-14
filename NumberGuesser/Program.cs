@@ -6,7 +6,11 @@ namespace NumberGuesser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string appName = "Guesser";
+            int appVersion = 1;
+            string appAuthor = "Kamil";
+
+            Console.WriteLine($"[{appName}] Wersja: 0.0.{appVersion}, Author: {appAuthor} ");
         }
     }
 }
