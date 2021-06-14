@@ -3,7 +3,6 @@
 namespace NumberGuesser
 {
 
- 
     class Program
     {
         static void Main(string[] args)
@@ -18,8 +17,18 @@ namespace NumberGuesser
 
             Console.ResetColor();
 
+            /*
+             Dane od użytkownieka
+             */
+
             Console.WriteLine("Jam masz na imię?");
             string nameInput = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+
+            Console.WriteLine($"Powodzenia {nameInput}, odgadnij liczbę....");
+
+            Console.ResetColor();
         }
     }
 }
